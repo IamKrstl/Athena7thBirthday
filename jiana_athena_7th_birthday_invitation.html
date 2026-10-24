@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiana Athena Turns 7! | Magical Mermaid Birthday</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sea-teal': '#06d6a0',
+            'sea-blue': '#118ab2',
+            'sea-darkblue': '#073b4c',
+            'mermaid-purple': '#a29bfe',
+            'mermaid-lavender': '#d6a2e8',
+            'mermaid-pink': '#ff9ff3',
+            'mermaid-gold': '#ffd166',
+            'pearl-white': '#fdfeff',
+          },
+          fontFamily: {
+            pacifico: ['Pacifico', 'cursive'],
+            fredoka: ['Fredoka', 'sans-serif'],
+            quicksand: ['Quicksand', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'float-slow': 'float 7s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+            'swim-left': 'swimLeft 18s linear infinite',
+            'swim-right': 'swimRight 22s linear infinite',
+            'shimmer': 'shimmer 2.5s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { filter: 'drop-shadow(0 0 10px rgba(255, 209, 102, 0.8))' },
+              '50%': { filter: 'drop-shadow(0 0 22px rgba(255, 159, 243, 0.9))' },
+            },
+            swimLeft: {
+              '0%': { transform: 'translateX(100vw) scaleX(-1)' },
+              '100%': { transform: 'translateX(-20vw) scaleX(-1)' },
+            },
+            swimRight: {
+              '0%': { transform: 'translateX(-20vw)' },
+              '100%': { transform: 'translateX(100vw)' },
+            },
+            shimmer: {
+              '0%': { opacity: '0.4' },
+              '50%': { opacity: '1' },
+              '100%': { opacity: '0.4' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(180deg, #0f2027 0%, #203a43 30%, #118ab2 70%, #073b4c 100%);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Floating Bubbles */
+    .bubbles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+      animation: rise 10s infinite linear;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Glassmorphism Styling */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    }
+
+    .glass-card-dark {
+      background: rgba(7, 59, 76, 0.85);
+      backdrop-filter: blur(12px);
+      border: 2px solid rgba(162, 155, 254, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    /* Flip Card Animations */
+    .flip-card {
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #073b4c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #a29bfe;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff9ff3;
+    }
+
+    /* Candle Flame Animation */
+    .flame {
+      width: 16px;
+      height: 26px;
+      background: linear-gradient(to bottom, #fff 0%, #ffd166 40%, #ff6b6b 100%);
+      border-radius: 50% 50% 35% 35%;
+      box-shadow: 0 0 15px #ffd166, 0 0 30px #ff9ff3;
+      animation: flicker 0.1s infinite alternate;
+      transform-origin: center bottom;
+    }
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-2deg); }
+      100% { transform: scale(1.1) rotate(2deg); }
+    }
+  </style>
+</head>
+<body class="relative text-slate-800 antialiased selection:bg-mermaid-pink selection:text-white">
+
+  <!-- Floating Bubbles Container -->
+  <div class="bubbles-container" id="bubblesContainer"></div>
+
+  <!-- Ambient Audio & Host Settings Controls Top Navigation -->
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <button onclick="toggleAudio()" id="soundToggleBtn" class="glass-card flex items-center gap-2 px-3.5 py-2 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all text-xs sm:text-sm font-semibold text-sea-darkblue border-2 border-mermaid-purple">
+      <i id="soundIcon" class="fas fa-volume-mute text-pink-500 text-base"></i>
+      <span id="soundText" class="hidden sm:inline">Music Off</span>
+    </button>
+    
+    <button onclick="openHostModal()" class="glass-card flex items-center gap-2 px-3.5 py-2 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all text-xs sm:text-sm font-semibold text-sea-darkblue border-2 border-sea-teal">
+      <i class="fas fa-user-gear text-teal-600 text-base"></i>
+      <span class="hidden sm:inline">RSVP Admin</span>
+    </button>
+  </div>
+
+  <!-- Animated Swimming Creatures Backdrop -->
+  <div class="pointer-events-none fixed top-1/4 left-0 w-full z-0 overflow-hidden h-64">
+    <div class="animate-swim-right absolute top-4 text-3xl opacity-75">🧜‍♀️</div>
+    <div class="animate-swim-left absolute top-24 text-2xl opacity-60">🐠 🐡</div>
+    <div class="animate-swim-right absolute top-44 text-3xl opacity-70" style="animation-duration: 25s;">🐬</div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 py-16 z-10 overflow-hidden">
+    <!-- Floating Ocean Graphics -->
+    <div class="absolute top-10 left-10 text-5xl sm:text-7xl animate-float opacity-80 pointer-events-none">🐚</div>
+    <div class="absolute top-20 right-10 text-5xl sm:text-7xl animate-float-slow opacity-80 pointer-events-none" style="animation-delay: 1.5s;">🧜‍♀️</div>
+    <div class="absolute bottom-10 left-12 text-5xl sm:text-6xl animate-float opacity-80 pointer-events-none" style="animation-delay: 2s;">🪸</div>
+    <div class="absolute bottom-16 right-12 text-5xl sm:text-6xl animate-float-slow opacity-80 pointer-events-none" style="animation-delay: 0.5s;">⭐</div>
+
+    <div class="max-w-4xl mx-auto space-y-6">
+      
+      <!-- Subtitle Badge -->
+      <div class="inline-block animate-bounce">
+        <span class="px-6 py-2 rounded-full bg-gradient-to-r from-mermaid-pink via-mermaid-purple to-sea-teal text-white font-bold tracking-widest text-xs sm:text-sm uppercase shadow-lg border border-white/40">
+          ✨ You Are Joyfully Invited ✨
+        </span>
+      </div>
+
+      <!-- Birthday Celebrant Name -->
+      <div class="space-y-2">
+        <h2 class="font-pacifico text-mermaid-gold text-2xl sm:text-4xl drop-shadow-md">Under The Sea Birthday Party</h2>
+        <h1 class="font-fredoka text-5xl sm:text-7xl md:text-8xl font-bold text-white tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+          Jiana Athena Reyes<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-mermaid-pink via-mermaid-gold to-sea-teal">Turns 7!</span>
+        </h1>
+      </div>
+
+      <p class="text-lg sm:text-2xl text-cyan-100 font-medium max-w-2xl mx-auto drop-shadow-sm font-fredoka">
+        Dive into a magical underwater adventure filled with pearls, sparkles, and ocean wishes! 🧜‍♀️🌊✨
+      </p>
+
+      <!-- COUNTDOWN TIMER CONTAINER -->
+      <div class="pt-6">
+        <h3 class="text-white/90 text-xs font-bold uppercase tracking-widest mb-4">The Magic Begins In</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-lg mx-auto">
+          <div class="glass-card rounded-2xl p-3 sm:p-4 text-center border-2 border-mermaid-pink/50 hover:scale-105 transition-all">
+            <span id="days" class="block font-fredoka text-3xl sm:text-4xl font-bold text-sea-darkblue">00</span>
+            <span class="text-xs uppercase font-bold text-slate-600">Days</span>
+          </div>
+          <div class="glass-card rounded-2xl p-3 sm:p-4 text-center border-2 border-mermaid-purple/50 hover:scale-105 transition-all">
+            <span id="hours" class="block font-fredoka text-3xl sm:text-4xl font-bold text-sea-darkblue">00</span>
+            <span class="text-xs uppercase font-bold text-slate-600">Hours</span>
+          </div>
+          <div class="glass-card rounded-2xl p-3 sm:p-4 text-center border-2 border-sea-teal/50 hover:scale-105 transition-all">
+            <span id="minutes" class="block font-fredoka text-3xl sm:text-4xl font-bold text-sea-darkblue">00</span>
+            <span class="text-xs uppercase font-bold text-slate-600">Minutes</span>
+          </div>
+          <div class="glass-card rounded-2xl p-3 sm:p-4 text-center border-2 border-mermaid-gold/50 hover:scale-105 transition-all">
+            <span id="seconds" class="block font-fredoka text-3xl sm:text-4xl font-bold text-pink-600">00</span>
+            <span class="text-xs uppercase font-bold text-slate-600">Seconds</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="pt-8 flex flex-wrap justify-center gap-4">
+        <a href="#rsvp" class="px-8 py-4 rounded-full bg-gradient-to-r from-mermaid-pink to-mermaid-purple text-white font-fredoka font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all border-2 border-white/50 flex items-center gap-2">
+          <i class="fas fa-paper-plane"></i> Send RSVP
+        </a>
+        <button onclick="openWishModal()" class="px-8 py-4 rounded-full bg-gradient-to-r from-sea-teal to-sea-blue text-white font-fredoka font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all border-2 border-white/50 flex items-center gap-2">
+          <i class="fas fa-pen-fancy"></i> Write Wish for Athena
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- EVENT DETAILS BAR (TBA NOTICES) -->
+  <section class="relative z-20 px-4 -mt-8">
+    <div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 sm:p-8 shadow-2xl border-4 border-white/80 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      
+      <!-- Date -->
+      <div class="flex flex-col items-center p-4 rounded-2xl bg-sky-50/90 border border-sky-100">
+        <div class="w-12 h-12 rounded-full bg-sea-blue text-white flex items-center justify-center text-xl mb-2 shadow-md">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <h4 class="font-fredoka font-bold text-slate-700 text-lg">Date</h4>
+        <p class="font-bold text-sea-darkblue text-lg">January 18, 2028</p>
+        <span class="text-xs text-slate-500 font-semibold">Mark your calendar! 🗓️</span>
+      </div>
+
+      <!-- Time -->
+      <div class="flex flex-col items-center p-4 rounded-2xl bg-purple-50/90 border border-purple-100">
+        <div class="w-12 h-12 rounded-full bg-mermaid-purple text-white flex items-center justify-center text-xl mb-2 shadow-md">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h4 class="font-fredoka font-bold text-slate-700 text-lg">Time</h4>
+        <p class="font-bold text-purple-900 text-lg">To Be Announced</p>
+        <span class="inline-block px-3 py-1 mt-1 rounded-full bg-purple-200 text-purple-800 text-xs font-bold">TBA (Will Update Soon)</span>
+      </div>
+
+      <!-- Location -->
+      <div class="flex flex-col items-center p-4 rounded-2xl bg-emerald-50/90 border border-emerald-100">
+        <div class="w-12 h-12 rounded-full bg-sea-teal text-white flex items-center justify-center text-xl mb-2 shadow-md">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h4 class="font-fredoka font-bold text-slate-700 text-lg">Venue Location</h4>
+        <p class="font-bold text-teal-900 text-lg">To Be Announced</p>
+        <span class="inline-block px-3 py-1 mt-1 rounded-full bg-teal-200 text-teal-800 text-xs font-bold">TBA (Secret Cove 🌊)</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE 7 MAGICAL TREASURES (ROSE, CANDLE, TREASURE, SHOE) -->
+  <section id="treasures" class="relative z-10 py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-mermaid-gold uppercase tracking-widest font-bold text-xs">Celebratory Traditions</span>
+      <h2 class="font-fredoka text-4xl sm:text-5xl font-bold text-white drop-shadow-md mt-1">
+        7 Magical Traditions
+      </h2>
+      <p class="text-cyan-100 max-w-2xl mx-auto mt-2 text-sm sm:text-base">
+        Click on any participant card below to read or edit their special birthday wish for Jiana Athena!
+      </p>
+
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mt-8" id="treasureTabs">
+        <button onclick="switchTab('roses')" id="tab-roses" class="treasure-tab active px-5 py-3 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all bg-mermaid-pink text-white shadow-lg border-2 border-white">
+          🌹 7 Roses
+        </button>
+        <button onclick="switchTab('candles')" id="tab-candles" class="treasure-tab px-5 py-3 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all bg-white/20 text-white hover:bg-white/30 border-2 border-transparent">
+          🕯️ 7 Candles
+        </button>
+        <button onclick="switchTab('treasures')" id="tab-treasures" class="treasure-tab px-5 py-3 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all bg-white/20 text-white hover:bg-white/30 border-2 border-transparent">
+          🎁 7 Treasures
+        </button>
+        <button onclick="switchTab('shoes')" id="tab-shoes" class="treasure-tab px-5 py-3 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all bg-white/20 text-white hover:bg-white/30 border-2 border-transparent">
+          👠 7 Shoes
+        </button>
+      </div>
+    </div>
+
+    <!-- TAB 1: 7 ROSES -->
+    <div id="content-roses" class="treasure-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+    <!-- TAB 2: 7 CANDLES -->
+    <div id="content-candles" class="treasure-content hidden">
+      <div class="glass-card rounded-3xl p-6 sm:p-10 text-center max-w-3xl mx-auto border-2 border-mermaid-gold/40 mb-10">
+        <h3 class="font-fredoka text-2xl sm:text-3xl font-bold text-sea-darkblue mb-2">
+          Interactive Candle Ceremony 🎂
+        </h3>
+        <p class="text-slate-600 text-xs sm:text-sm mb-6">Tap on each candle to light its magical flame for Jiana Athena!</p>
+        
+        <!-- Candles Display -->
+        <div class="flex justify-center items-end gap-3 sm:gap-6 py-6 min-h-[180px]" id="candlesContainer"></div>
+
+        <div class="mt-4 flex justify-center gap-3">
+          <button onclick="lightAllCandles()" class="px-5 py-2.5 rounded-full bg-mermaid-gold text-sea-darkblue font-bold text-xs sm:text-sm shadow-md hover:scale-105 active:scale-95 transition-all">
+            ✨ Light All Candles
+          </button>
+          <button onclick="resetCandles()" class="px-5 py-2.5 rounded-full bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm shadow-md hover:scale-105 active:scale-95 transition-all">
+            💨 Blow Out
+          </button>
+        </div>
+      </div>
+
+      <div id="grid-candles" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    </div>
+
+    <!-- TAB 3: 7 TREASURES -->
+    <div id="content-treasures" class="treasure-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+    <!-- TAB 4: 7 SHOES -->
+    <div id="content-shoes" class="treasure-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+  </section>
+
+  <!-- DRESS CODE & PROGRAM HIGHLIGHTS (TBA) -->
+  <section class="relative z-10 py-12 px-4 max-w-5xl mx-auto">
+    <div class="glass-card rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-white/60 relative overflow-hidden">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+          <div class="inline-block px-4 py-1 rounded-full bg-sea-teal/20 text-sea-teal font-bold text-xs uppercase tracking-wider">
+            Party Guidelines
+          </div>
+          <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-sea-darkblue">
+            Celebration Highlights & Attire
+          </h2>
+          <p class="text-slate-600 leading-relaxed text-sm">
+            We are preparing a magical experience for Jiana Athena's 7th Birthday. Final program details and schedule will be announced soon!
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-500 flex items-center justify-center shrink-0">
+                <i class="fas fa-palette text-lg"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-slate-800 text-sm">Attire Color Palette</h5>
+                <p class="text-xs text-slate-600 mt-0.5">Under the Sea Colors: Pearl White, Mint Teal, Soft Lavender, Pastel Coral, & Gold.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-500 flex items-center justify-center shrink-0">
+                <i class="fas fa-gift text-lg"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-slate-800 text-sm">Program & Schedule</h5>
+                <p class="text-xs text-slate-600 mt-0.5">To Be Announced (Full timeline, games, and surprises to follow).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Palette Preview -->
+        <div class="bg-gradient-to-br from-sea-blue/10 to-mermaid-purple/20 p-6 rounded-2xl border border-white/80 text-center space-y-4">
+          <h4 class="font-fredoka text-lg font-bold text-sea-darkblue">Theme Color Swatches</h4>
+          <div class="flex justify-center gap-3 py-2">
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-[#06d6a0] shadow-md mx-auto border-2 border-white"></div>
+              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Sea Teal</span>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-[#a29bfe] shadow-md mx-auto border-2 border-white"></div>
+              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Lavender</span>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-[#ff9ff3] shadow-md mx-auto border-2 border-white"></div>
+              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Pearl Pink</span>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-[#ffd166] shadow-md mx-auto border-2 border-white"></div>
+              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Gold</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 italic">Feel free to dress up in ocean-inspired pastels or formal wear!</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RSVP FORM SECTION -->
+  <section id="rsvp" class="relative z-10 py-16 px-4 max-w-3xl mx-auto">
+    <div class="glass-card rounded-3xl p-8 sm:p-12 shadow-2xl border-4 border-mermaid-pink/40">
+      
+      <div class="text-center mb-8">
+        <span class="text-pink-500 font-bold text-xs uppercase tracking-widest">We'd Love To See You</span>
+        <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-sea-darkblue mt-1">
+          RSVP For The Party
+        </h2>
+        <p class="text-slate-600 text-sm mt-1">Please confirm your attendance so we can reserve your seat!</p>
+      </div>
+
+      <form id="rsvpForm" onsubmit="handleRSVP(event)" class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Full Name *</label>
+          <input type="text" id="guestName" required placeholder="e.g. Uncle Raymond Reyes" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Contact Phone / Email *</label>
+            <input type="text" id="guestContact" required placeholder="0912 345 6789 or email@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Will You Attend? *</label>
+            <select id="attendanceStatus" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+              <option value="Joyfully Attending">Joyfully Attending 🎉</option>
+              <option value="Regretfully Declining">Regretfully Declining 💔</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Number of Guests (Including Yourself)</label>
+          <input type="number" id="guestCount" min="1" max="10" value="1" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Birthday Message for Jiana Athena</label>
+          <textarea id="guestWish" rows="3" placeholder="Write a sweet message for Jiana..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-mermaid-pink via-mermaid-purple to-sea-teal text-white font-fredoka font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-95 transition-all">
+          ✨ Submit RSVP ✨
+        </button>
+      </form>
+
+      <!-- RSVP Success Toast -->
+      <div id="rsvpSuccessMsg" class="hidden mt-6 p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-300 text-center space-y-2 animate-bounce">
+        <div class="text-4xl">🧜‍♀️🎉</div>
+        <h4 class="font-fredoka text-xl font-bold text-emerald-800">Thank You! RSVP Submitted Successfully!</h4>
+        <p class="text-emerald-700 text-sm">Your response has been saved. We can't wait to celebrate Jiana Athena's 7th Birthday with you!</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OCEAN WISHBOOK WALL SECTION -->
+  <section class="relative z-10 py-16 px-4 max-w-5xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 text-center sm:text-left">
+      <div>
+        <span class="text-mermaid-gold font-bold text-xs uppercase tracking-widest">Love & Blessings</span>
+        <h2 class="font-fredoka text-4xl sm:text-5xl font-bold text-white drop-shadow-md mt-1">
+          Ocean Wishbook Wall 💌
+        </h2>
+        <p class="text-cyan-100 text-sm mt-1">Read sweet wishes left by family and friends for Athena!</p>
+      </div>
+
+      <button onclick="openWishModal()" class="px-6 py-3 rounded-full bg-gradient-to-r from-mermaid-pink to-mermaid-purple text-white font-fredoka font-bold text-sm shadow-xl hover:scale-105 active:scale-95 transition-all border-2 border-white/50 flex items-center gap-2 shrink-0">
+        <i class="fas fa-plus-circle"></i> Add Your Wish
+      </button>
+    </div>
+
+    <!-- Wishes Container Grid -->
+    <div id="wishbookGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- MODAL: EDIT INDIVIDUAL 7s PARTICIPANT MESSAGE -->
+  <div id="editMessageModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border-2 border-mermaid-pink relative animate-float-slow">
+      <button onclick="closeEditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-mermaid-pink text-white flex items-center justify-center text-lg font-bold" id="editModalIcon">🌹</div>
+        <div>
+          <h4 class="font-fredoka font-bold text-lg text-sea-darkblue" id="editModalTitle">Edit Wish</h4>
+          <p class="text-xs text-pink-600 font-semibold" id="editModalCategory">7 Roses Category</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Participant / Giver Name *</label>
+          <input type="text" id="editParticipantName" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm font-bold text-sea-darkblue">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Personal Message / Wish for Athena *</label>
+          <textarea id="editParticipantWish" rows="4" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm"></textarea>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-2">
+          <button onclick="closeEditModal()" class="px-5 py-2.5 rounded-xl bg-slate-200 text-slate-700 font-bold text-xs hover:bg-slate-300 transition-all">
+            Cancel
+          </button>
+          <button onclick="saveParticipantMessage()" class="px-5 py-2.5 rounded-xl bg-mermaid-pink text-white font-bold text-xs shadow-md hover:bg-pink-500 transition-all flex items-center gap-1.5">
+            <i class="fas fa-save"></i> Save Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD WISH TO WISHBOOK WALL -->
+  <div id="addWishModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border-2 border-sea-teal relative">
+      <button onclick="closeWishModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-sea-teal text-white flex items-center justify-center text-lg font-bold">💌</div>
+        <div>
+          <h4 class="font-fredoka font-bold text-lg text-sea-darkblue">Write a Birthday Wish</h4>
+          <p class="text-xs text-teal-600 font-semibold">Leave a sweet note for Jiana Athena 🧜‍♀️</p>
+        </div>
+      </div>
+
+      <form onsubmit="saveNewWish(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name *</label>
+          <input type="text" id="wishAuthor" required placeholder="e.g. Uncle Raymond" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-sea-teal focus:outline-none text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Relationship / Title</label>
+          <input type="text" id="wishRelation" placeholder="e.g. Family / Godfather / Friend" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-sea-teal focus:outline-none text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Birthday Wish Message *</label>
+          <textarea id="wishText" required rows="4" placeholder="Write your heartfelt message here..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-sea-teal focus:outline-none text-sm"></textarea>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="button" onclick="closeWishModal()" class="px-5 py-2.5 rounded-xl bg-slate-200 text-slate-700 font-bold text-xs hover:bg-slate-300 transition-all">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-sea-teal text-white font-bold text-xs shadow-md hover:bg-teal-600 transition-all flex items-center gap-1.5">
+            <i class="fas fa-paper-plane"></i> Post Wish
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: HOST RSVP ADMIN & CSV EXPORT -->
+  <div id="hostModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl border-2 border-mermaid-purple relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeHostModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-full bg-mermaid-purple text-white flex items-center justify-center text-lg font-bold">📋</div>
+        <div>
+          <h4 class="font-fredoka font-bold text-xl text-sea-darkblue">RSVP Guest Responses</h4>
+          <p class="text-xs text-purple-600 font-semibold">Where do filled-out forms go?</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 text-xs text-slate-700 space-y-2 mb-6">
+        <p><strong>💡 How RSVP Data Works:</strong></p>
+        <p>Submissions are automatically saved right here in your browser's local memory. You can view all responses below or click <strong>Export CSV</strong> to open them in Excel/Google Sheets!</p>
+      </div>
+
+      <!-- Export Buttons -->
+      <div class="flex flex-wrap gap-3 mb-6">
+        <button onclick="exportRSVPCSV()" class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-md hover:bg-emerald-700 transition-all flex items-center gap-2">
+          <i class="fas fa-file-excel"></i> Export Guest List (CSV)
+        </button>
+        <button onclick="clearRSVPData()" class="px-4 py-2.5 rounded-xl bg-rose-100 text-rose-700 font-bold text-xs hover:bg-rose-200 transition-all">
+          <i class="fas fa-trash-alt"></i> Clear Data
+        </button>
+      </div>
+
+      <!-- Guest Table -->
+      <div class="overflow-x-auto rounded-xl border border-slate-200">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-100 text-slate-700 font-bold uppercase">
+            <tr>
+              <th class="p-3">Name</th>
+              <th class="p-3">Contact</th>
+              <th class="p-3">Status</th>
+              <th class="p-3">Guests</th>
+              <th class="p-3">Message</th>
+            </tr>
+          </thead>
+          <tbody id="hostRsvpTableBody" class="divide-y divide-slate-200 text-slate-700">
+            <!-- Rendered JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 py-12 text-center text-white/80 border-t border-white/10 mt-12 bg-sea-darkblue/90">
+    <div class="max-w-4xl mx-auto px-4 space-y-3">
+      <p class="font-pacifico text-2xl text-mermaid-gold">Jiana Athena Reyes Turns 7!</p>
+      <p class="text-xs text-slate-300">Under the Sea Birthday Celebration • January 18, 2028</p>
+      <p class="text-[11px] text-slate-400">Custom Invitation Web App • Made with Love for Jiana Athena</p>
+    </div>
+  </footer>
+
+  <!-- MAIN JAVASCRIPT CODE -->
+  <script>
+    /* ===================================================
+       1. DATA STRUCTURES (7 ROSES, CANDLES, TREASURES, SHOES)
+       =================================================== */
+
+    // 7 Roses (With the requested names)
+    const defaultRoses = [
+      { id: 'rose-1', name: 'Jian Adam Reyes', category: '7 Roses', title: '1st Rose', wish: 'Wishing my dear Jiana Athena a very happy 7th birthday! May your day be filled with endless smiles and love.' },
+      { id: 'rose-2', name: 'Rodolfo Noveno Jr.', category: '7 Roses', title: '2nd Rose', wish: 'Happy 7th Birthday Jiana Athena! Stay sweet, smart, and full of joy.' },
+      { id: 'rose-3', name: 'Raymond Reyes', category: '7 Roses', title: '3rd Rose', wish: 'To our little princess Athena, may you always grow up with happiness and big dreams!' },
+      { id: 'rose-4', name: 'Lito Caadiang', category: '7 Roses', title: '4th Rose', wish: 'Warmest birthday wishes to Jiana Athena on her 7th birthday! God bless you always.' },
+      { id: 'rose-5', name: 'Jhon Syl Ver', category: '7 Roses', title: '5th Rose', wish: 'Happy 7th Birthday! Enjoy your special mermaid-themed day under the sea!' },
+      { id: 'rose-6', name: 'Jhon Rambo Ver', category: '7 Roses', title: '6th Rose', wish: 'Wishing Jiana Athena lots of fun, laughter, and sweet surprises on her birthday!' },
+      { id: 'rose-7', name: 'Jonnel Reyes', category: '7 Roses', title: '7th Rose', wish: 'Happy 7th Birthday Jiana Athena! May all your birthday wishes come true!' }
+    ];
+
+    // 7 Candles (Editable Slots)
+    const defaultCandles = [
+      { id: 'candle-1', name: 'Candle Slot 1 (TBA)', category: '7 Candles', title: '1st Candle', wish: 'A candle wish for Jiana Athena for good health and infinite giggles!' },
+      { id: 'candle-2', name: 'Candle Slot 2 (TBA)', category: '7 Candles', title: '2nd Candle', wish: 'May your light shine bright in everything you do!' },
+      { id: 'candle-3', name: 'Candle Slot 3 (TBA)', category: '7 Candles', title: '3rd Candle', wish: 'Wishing you wisdom and happiness as you start your 7th year.' },
+      { id: 'candle-4', name: 'Candle Slot 4 (TBA)', category: '7 Candles', title: '4th Candle', wish: 'May you always be surrounded by loving family and true friends.' },
+      { id: 'candle-5', name: 'Candle Slot 5 (TBA)', category: '7 Candles', title: '5th Candle', wish: 'A candle wish for courage and exciting new discoveries in school!' },
+      { id: 'candle-6', name: 'Candle Slot 6 (TBA)', category: '7 Candles', title: '6th Candle', wish: 'Wishing you sweet dreams that come true like magic.' },
+      { id: 'candle-7', name: 'Candle Slot 7 (TBA)', category: '7 Candles', title: '7th Candle', wish: 'May your life be filled with sweet ocean adventures forever!' }
+    ];
+
+    // 7 Treasures / Gifts (Editable Slots)
+    const defaultTreasures = [
+      { id: 'treasure-1', name: 'Treasure Slot 1 (TBA)', category: '7 Treasures', title: '1st Treasure', wish: 'A gift of joy and boundless imagination.' },
+      { id: 'treasure-2', name: 'Treasure Slot 2 (TBA)', category: '7 Treasures', title: '2nd Treasure', wish: 'A treasure of good health and playful strength.' },
+      { id: 'treasure-3', name: 'Treasure Slot 3 (TBA)', category: '7 Treasures', title: '3rd Treasure', wish: 'A treasure of knowledge and academic success.' },
+      { id: 'treasure-4', name: 'Treasure Slot 4 (TBA)', category: '7 Treasures', title: '4th Treasure', wish: 'A gift of kindness that touches everyone around you.' },
+      { id: 'treasure-5', name: 'Treasure Slot 5 (TBA)', category: '7 Treasures', title: '5th Treasure', wish: 'A treasure of bravery to explore new horizons.' },
+      { id: 'treasure-6', name: 'Treasure Slot 6 (TBA)', category: '7 Treasures', title: '6th Treasure', wish: 'A gift of laughter and wonderful playfulness.' },
+      { id: 'treasure-7', name: 'Treasure Slot 7 (TBA)', category: '7 Treasures', title: '7th Treasure', wish: 'A treasure of unconditional family love.' }
+    ];
+
+    // 7 Shoes (Editable Slots)
+    const defaultShoes = [
+      { id: 'shoe-1', name: 'Shoe Slot 1 (TBA)', category: '7 Shoes', title: '1st Pair of Shoes', wish: 'Stepping gently into childhood memories.' },
+      { id: 'shoe-2', name: 'Shoe Slot 2 (TBA)', category: '7 Shoes', title: '2nd Pair of Shoes', wish: 'Running towards fun and sunshine!' },
+      { id: 'shoe-3', name: 'Shoe Slot 3 (TBA)', category: '7 Shoes', title: '3rd Pair of Shoes', wish: 'Walking proudly into grade school adventures.' },
+      { id: 'shoe-4', name: 'Shoe Slot 4 (TBA)', category: '7 Shoes', title: '4th Pair of Shoes', wish: 'Dancing through life with grace and laughter.' },
+      { id: 'shoe-5', name: 'Shoe Slot 5 (TBA)', category: '7 Shoes', title: '5th Pair of Shoes', wish: 'Sparkling shoes for a birthday princess!' },
+      { id: 'shoe-6', name: 'Shoe Slot 6 (TBA)', category: '7 Shoes', title: '6th Pair of Shoes', wish: 'Taking confident steps toward big dreams.' },
+      { id: 'shoe-7', name: 'Shoe Slot 7 (TBA)', category: '7 Shoes', title: '7th Pair of Shoes', wish: 'Glass slippers for our royal mermaid princess Jiana Athena!' }
+    ];
+
+    /* Persistent Storage Helper for 7s */
+    function getStored7Data(key, fallback) {
+      const stored = localStorage.getItem(`jiana_7th_${key}`);
+      return stored ? JSON.parse(stored) : fallback;
+    }
+
+    function save7Data(key, data) {
+      localStorage.setItem(`jiana_7th_${key}`, JSON.stringify(data));
+    }
+
+    let rosesData = getStored7Data('roses', defaultRoses);
+    let candlesData = getStored7Data('candles', defaultCandles);
+    let treasuresData = getStored7Data('treasures', defaultTreasures);
+    let shoesData = getStored7Data('shoes', defaultShoes);
+
+    /* Currently selected card for editing modal */
+    let currentEditItem = null;
+    let currentEditListKey = '';
+
+    /* ===================================================
+       2. RENDERERS FOR 7s CARDS
+       =================================================== */
+    function renderCardGroup(dataList, containerId, iconEmoji, listKey) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = "";
+
+      dataList.forEach((item, index) => {
+        const cardHtml = `
+          <div class="flip-card h-64 cursor-pointer" id="card-${item.id}">
+            <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+              <!-- Front Side -->
+              <div class="flip-card-front absolute inset-0 glass-card rounded-2xl p-5 flex flex-col items-center justify-between text-center border-2 border-mermaid-pink/40 hover:border-mermaid-pink transition-all" onclick="toggleCardFlip('${item.id}')">
+                <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-mermaid-pink to-mermaid-purple text-white flex items-center justify-center font-bold text-xs shadow-md">
+                  ${index + 1}
+                </span>
+                <div class="text-3xl my-1">${iconEmoji}</div>
+                <div>
+                  <h4 class="font-fredoka font-bold text-sea-darkblue text-base leading-tight">${item.name}</h4>
+                  <p class="text-[11px] text-purple-600 font-semibold mt-0.5">${item.title}</p>
+                </div>
+                <div class="text-[10px] text-pink-600 font-bold bg-pink-100/80 px-3 py-1 rounded-full">
+                  Tap to Read Message ✨
+                </div>
+              </div>
+
+              <!-- Back Side -->
+              <div class="flip-card-back absolute inset-0 glass-card-dark text-white rounded-2xl p-5 flex flex-col justify-between text-center border-2 border-mermaid-purple">
+                <div onclick="toggleCardFlip('${item.id}')" class="flex-1 flex flex-col items-center justify-center">
+                  <span class="text-2xl mb-1">${iconEmoji}</span>
+                  <h5 class="font-fredoka font-bold text-mermaid-gold text-sm mb-1">${item.name}</h5>
+                  <p class="text-xs text-slate-200 leading-relaxed italic overflow-y-auto max-h-24 px-1">
+                    "${item.wish}"
+                  </p>
+                </div>
+                <!-- Interactive Edit Button -->
+                <button onclick="event.stopPropagation(); openEditModal('${item.id}', '${listKey}')" class="mt-2 w-full py-1.5 rounded-lg bg-mermaid-pink/30 hover:bg-mermaid-pink text-white font-bold text-xs border border-mermaid-pink transition-all flex items-center justify-center gap-1.5">
+                  <i class="fas fa-edit"></i> Edit This Wish
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += cardHtml;
+      });
+    }
+
+    function toggleCardFlip(cardId) {
+      const card = document.getElementById(`card-${cardId}`);
+      if (card) card.classList.toggle('flipped');
+    }
+
+    /* ===================================================
+       3. EDIT MODAL LOGIC FOR ANY 7s PARTICIPANT
+       =================================================== */
+    function openEditModal(itemId, listKey) {
+      currentEditListKey = listKey;
+      let dataset = [];
+
+      if (listKey === 'roses') dataset = rosesData;
+      else if (listKey === 'candles') dataset = candlesData;
+      else if (listKey === 'treasures') dataset = treasuresData;
+      else if (listKey === 'shoes') dataset = shoesData;
+
+      currentEditItem = dataset.find(i => i.id === itemId);
+      if (!currentEditItem) return;
+
+      document.getElementById('editModalTitle').innerText = `Edit Wish for Jiana Athena`;
+      document.getElementById('editModalCategory').innerText = `${currentEditItem.category} • Slot #${currentEditItem.title}`;
+      document.getElementById('editParticipantName').value = currentEditItem.name;
+      document.getElementById('editParticipantWish').value = currentEditItem.wish;
+
+      document.getElementById('editMessageModal').classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+      document.getElementById('editMessageModal').classList.add('hidden');
+      currentEditItem = null;
+    }
+
+    function saveParticipantMessage() {
+      if (!currentEditItem) return;
+
+      const newName = document.getElementById('editParticipantName').value.trim();
+      const newWish = document.getElementById('editParticipantWish').value.trim();
+
+      if (!newName || !newWish) {
+        alert("Please fill in both the participant name and message!");
+        return;
+      }
+
+      currentEditItem.name = newName;
+      currentEditItem.wish = newWish;
+
+      // Save to localStorage and re-render
+      if (currentEditListKey === 'roses') {
+        save7Data('roses', rosesData);
+        renderCardGroup(rosesData, 'content-roses', '🌹', 'roses');
+      } else if (currentEditListKey === 'candles') {
+        save7Data('candles', candlesData);
+        renderCardGroup(candlesData, 'grid-candles', '🕯️', 'candles');
+      } else if (currentEditListKey === 'treasures') {
+        save7Data('treasures', treasuresData);
+        renderCardGroup(treasuresData, 'content-treasures', '🎁', 'treasures');
+      } else if (currentEditListKey === 'shoes') {
+        save7Data('shoes', shoesData);
+        renderCardGroup(shoesData, 'content-shoes', '👠', 'shoes');
+      }
+
+      closeEditModal();
+      triggerConfetti();
+    }
+
+    /* ===================================================
+       4. CANDLE CEREMONY APP LOGIC
+       =================================================== */
+    let candleStates = [false, false, false, false, false, false, false];
+
+    function renderCandles() {
+      const container = document.getElementById('candlesContainer');
+      if (!container) return;
+      container.innerHTML = "";
+
+      for (let i = 0; i < 7; i++) {
+        const isLit = candleStates[i];
+        const candleHtml = `
+          <div onclick="toggleCandle(${i})" class="cursor-pointer flex flex-col items-center group transform hover:scale-110 transition-all">
+            <div class="h-8 flex items-end mb-1">
+              ${isLit ? `<div class="flame animate-pulse"></div>` : `<div class="w-2 h-3 bg-slate-400/50 rounded-full"></div>`}
+            </div>
+            <div class="w-1 h-3 bg-slate-700"></div>
+            <div class="w-6 sm:w-8 h-20 sm:h-24 rounded-t-lg bg-gradient-to-b from-mermaid-pink via-mermaid-purple to-sea-teal shadow-md flex items-center justify-center border border-white/50 relative">
+              <span class="text-xs font-bold text-white drop-shadow">${i + 1}</span>
+            </div>
+          </div>
+        `;
+        container.innerHTML += candleHtml;
+      }
+    }
+
+    function toggleCandle(index) {
+      candleStates[index] = !candleStates[index];
+      renderCandles();
+      if (candleStates.every(s => s === true)) triggerConfetti();
+    }
+
+    function lightAllCandles() {
+      candleStates = [true, true, true, true, true, true, true];
+      renderCandles();
+      triggerConfetti();
+    }
+
+    function resetCandles() {
+      candleStates = [false, false, false, false, false, false, false];
+      renderCandles();
+    }
+
+    /* Tab Switching Logic */
+    function switchTab(tabName) {
+      document.querySelectorAll('.treasure-tab').forEach(btn => {
+        btn.classList.remove('bg-mermaid-pink', 'text-white', 'shadow-lg', 'border-white');
+        btn.classList.add('bg-white/20', 'text-white', 'border-transparent');
+      });
+
+      const selectedTab = document.getElementById(`tab-${tabName}`);
+      if (selectedTab) {
+        selectedTab.classList.remove('bg-white/20', 'border-transparent');
+        selectedTab.classList.add('bg-mermaid-pink', 'text-white', 'shadow-lg', 'border-white');
+      }
+
+      document.querySelectorAll('.treasure-content').forEach(content => content.classList.add('hidden'));
+      const activeContent = document.getElementById(`content-${tabName}`);
+      if (activeContent) activeContent.classList.remove('hidden');
+    }
+
+    /* ===================================================
+       5. RSVP FORM PERSISTENCE & CSV EXPORT
+       =================================================== */
+    function getRSVPData() {
+      const stored = localStorage.getItem('jiana_rsvp_list');
+      return stored ? JSON.parse(stored) : [];
+    }
+
+    function handleRSVP(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('guestName').value.trim();
+      const contact = document.getElementById('guestContact').value.trim();
+      const status = document.getElementById('attendanceStatus').value;
+      const count = document.getElementById('guestCount').value;
+      const wish = document.getElementById('guestWish').value.trim();
+
+      const newRSVP = {
+        id: 'rsvp-' + Date.now(),
+        name,
+        contact,
+        status,
+        count,
+        wish,
+        timestamp: new Date().toLocaleString()
+      };
+
+      const list = getRSVPData();
+      list.push(newRSVP);
+      localStorage.setItem('jiana_rsvp_list', JSON.stringify(list));
+
+      // Also automatically post wish to Wishbook Wall if provided!
+      if (wish !== "") {
+        addWishToWall({
+          id: 'wish-' + Date.now(),
+          author: name,
+          relation: 'RSVP Guest',
+          text: wish,
+          likes: 0
+        });
+      }
+
+      document.getElementById('rsvpForm').reset();
+      document.getElementById('rsvpSuccessMsg').classList.remove('hidden');
+      triggerConfetti();
+    }
+
+    /* Host RSVP Admin Modal & Export CSV */
+    function openHostModal() {
+      renderRSVPTable();
+      document.getElementById('hostModal').classList.remove('hidden');
+    }
+
+    function closeHostModal() {
+      document.getElementById('hostModal').classList.add('hidden');
+    }
+
+    function renderRSVPTable() {
+      const list = getRSVPData();
+      const tbody = document.getElementById('hostRsvpTableBody');
+      tbody.innerHTML = "";
+
+      if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-400">No RSVP entries submitted yet.</td></tr>`;
+        return;
+      }
+
+      list.forEach(item => {
+        tbody.innerHTML += `
+          <tr class="hover:bg-slate-50">
+            <td class="p-3 font-bold text-sea-darkblue">${item.name}</td>
+            <td class="p-3">${item.contact}</td>
+            <td class="p-3">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${item.status.includes('Joyfully') ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                ${item.status}
+              </span>
+            </td>
+            <td class="p-3">${item.count}</td>
+            <td class="p-3 italic">${item.wish || 'N/A'}</td>
+          </tr>
+        `;
+      });
+    }
+
+    function exportRSVPCSV() {
+      const list = getRSVPData();
+      if (list.length === 0) {
+        alert("No RSVP data available to export!");
+        return;
+      }
+
+      let csvContent = "data:text/csv;charset=utf-8,Name,Contact,Attendance,Guest Count,Wish,Date Submitted\n";
+      list.forEach(row => {
+        csvContent += `"${row.name}","${row.contact}","${row.status}","${row.count}","${row.wish.replace(/"/g, '""')}","${row.timestamp}"\n`;
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "Jiana_Athena_7th_Birthday_Guest_List.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function clearRSVPData() {
+      if (confirm("Are you sure you want to clear all saved RSVP responses?")) {
+        localStorage.removeItem('jiana_rsvp_list');
+        renderRSVPTable();
+      }
+    }
+
+    /* ===================================================
+       6. OCEAN WISHBOOK WALL PERSISTENCE
+       =================================================== */
+    const defaultWishes = [
+      { id: 'w1', author: 'Grandma & Grandpa', relation: 'Family', text: 'Happy 7th Birthday to our sweet Jiana Athena! May your day be filled with magic and love.', likes: 5 },
+      { id: 'w2', author: 'Uncle Raymond', relation: 'Relative', text: 'Can wait to celebrate with you under the sea! Keep shining bright Athena!', likes: 3 }
+    ];
+
+    function getWishbookData() {
+      const stored = localStorage.getItem('jiana_wishbook_list');
+      return stored ? JSON.parse(stored) : defaultWishes;
+    }
+
+    function addWishToWall(wishObj) {
+      const list = getWishbookData();
+      list.unshift(wishObj);
+      localStorage.setItem('jiana_wishbook_list', JSON.stringify(list));
+      renderWishbook();
+    }
+
+    function renderWishbook() {
+      const list = getWishbookData();
+      const grid = document.getElementById('wishbookGrid');
+      if (!grid) return;
+      grid.innerHTML = "";
+
+      list.forEach((item) => {
+        grid.innerHTML += `
+          <div class="glass-card rounded-2xl p-5 shadow-lg border border-white/60 space-y-3 transform hover:-translate-y-1 transition-all flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-mermaid-pink/30 text-pink-600 flex items-center justify-center font-bold text-lg border border-mermaid-pink">
+                  🧜‍♀️
+                </div>
+                <div>
+                  <h5 class="font-bold text-sea-darkblue text-sm">${item.author}</h5>
+                  <span class="text-[10px] text-purple-600 font-semibold bg-purple-100 px-2 py-0.5 rounded-full">${item.relation || 'Guest'}</span>
+                </div>
+              </div>
+              <p class="text-slate-700 text-xs italic leading-relaxed pt-1">
+                "${item.text}"
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-200/60 text-xs">
+              <button onclick="likeWish('${item.id}')" class="text-rose-500 font-bold flex items-center gap-1 hover:scale-110 transition-all">
+                <i class="fas fa-heart"></i> <span>${item.likes || 0}</span>
+              </button>
+              <span class="text-[10px] text-slate-400">Blessings ✨</span>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function likeWish(wishId) {
+      const list = getWishbookData();
+      const item = list.find(w => w.id === wishId);
+      if (item) {
+        item.likes = (item.likes || 0) + 1;
+        localStorage.setItem('jiana_wishbook_list', JSON.stringify(list));
+        renderWishbook();
+      }
+    }
+
+    function openWishModal() {
+      document.getElementById('addWishModal').classList.remove('hidden');
+    }
+
+    function closeWishModal() {
+      document.getElementById('addWishModal').classList.add('hidden');
+    }
+
+    function saveNewWish(e) {
+      e.preventDefault();
+      const author = document.getElementById('wishAuthor').value.trim();
+      const relation = document.getElementById('wishRelation').value.trim();
+      const text = document.getElementById('wishText').value.trim();
+
+      addWishToWall({
+        id: 'wish-' + Date.now(),
+        author,
+        relation,
+        text,
+        likes: 0
+      });
+
+      document.getElementById('wishAuthor').value = "";
+      document.getElementById('wishRelation').value = "";
+      document.getElementById('wishText').value = "";
+
+      closeWishModal();
+      triggerConfetti();
+    }
+
+    /* ===================================================
+       7. BUBBLE GENERATOR & COUNTDOWN TIMER
+       =================================================== */
+    function createBubbles() {
+      const container = document.getElementById('bubblesContainer');
+      for (let i = 0; i < 20; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        const size = Math.random() * 30 + 10;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.animationDelay = `${Math.random() * 8}s`;
+        bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+        container.appendChild(bubble);
+      }
+    }
+
+    const targetDate = new Date('January 18, 2028 15:00:00').getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = days.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+      }
+    }
+
+    /* ===================================================
+       8. WEB AUDIO SYNTHESIZER
+       =================================================== */
+    let audioCtx = null;
+    let isPlaying = false;
+    let timerId = null;
+
+    function toggleAudio() {
+      const soundIcon = document.getElementById('soundIcon');
+      const soundText = document.getElementById('soundText');
+
+      if (!isPlaying) {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        audioCtx.resume();
+        playOceanChimes();
+        isPlaying = true;
+        soundIcon.className = "fas fa-volume-up text-emerald-500 text-base";
+        soundText.innerText = "Music On";
+      } else {
+        if (timerId) clearInterval(timerId);
+        isPlaying = false;
+        soundIcon.className = "fas fa-volume-mute text-pink-500 text-base";
+        soundText.innerText = "Music Off";
+      }
+    }
+
+    function playOceanChimes() {
+      const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+      timerId = setInterval(() => {
+        if (!isPlaying) return;
+        const note = notes[Math.floor(Math.random() * notes.length)];
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.value = note;
+
+        gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 0.5);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 2.6);
+      }, 1200);
+    }
+
+    function triggerConfetti() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#a29bfe', '#ff9ff3', '#06d6a0', '#ffd166']
+        });
+      }
+    }
+
+    /* INITIALIZATION */
+    window.onload = function() {
+      createBubbles();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Render 7s Cards
+      renderCardGroup(rosesData, 'content-roses', '🌹', 'roses');
+      renderCardGroup(candlesData, 'grid-candles', '🕯️', 'candles');
+      renderCardGroup(treasuresData, 'content-treasures', '🎁', 'treasures');
+      renderCardGroup(shoesData, 'content-shoes', '👠', 'shoes');
+
+      renderCandles();
+      renderWishbook();
+    };
+  </script>
+</body>
+</html>
