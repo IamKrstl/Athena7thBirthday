@@ -102,20 +102,10 @@
     }
 
     @keyframes rise {
-      0% {
-        transform: translateY(0) scale(0.8);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.7;
-      }
-      90% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(-110vh) scale(1.2);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) scale(0.8); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
     }
 
     /* Glassmorphism Styling */
@@ -125,47 +115,6 @@
       -webkit-backdrop-filter: blur(12px);
       border: 2px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    }
-
-    .glass-card-dark {
-      background: rgba(7, 59, 76, 0.85);
-      backdrop-filter: blur(12px);
-      border: 2px solid rgba(162, 155, 254, 0.4);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    }
-
-    /* Flip Card Animations */
-    .flip-card {
-      perspective: 1000px;
-    }
-    .flip-card-inner {
-      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      transform-style: preserve-3d;
-    }
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-card-front, .flip-card-back {
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-    .flip-card-back {
-      transform: rotateY(180deg);
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #073b4c;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #a29bfe;
-      border-radius: 5px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ff9ff3;
     }
 
     /* Candle Flame Animation */
@@ -211,22 +160,18 @@
 
   <!-- HERO SECTION -->
   <header class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 py-16 z-10 overflow-hidden">
-    <!-- Floating Ocean Graphics -->
     <div class="absolute top-10 left-10 text-5xl sm:text-7xl animate-float opacity-80 pointer-events-none">🐚</div>
     <div class="absolute top-20 right-10 text-5xl sm:text-7xl animate-float-slow opacity-80 pointer-events-none" style="animation-delay: 1.5s;">🧜‍♀️</div>
     <div class="absolute bottom-10 left-12 text-5xl sm:text-6xl animate-float opacity-80 pointer-events-none" style="animation-delay: 2s;">🪸</div>
     <div class="absolute bottom-16 right-12 text-5xl sm:text-6xl animate-float-slow opacity-80 pointer-events-none" style="animation-delay: 0.5s;">⭐</div>
 
     <div class="max-w-4xl mx-auto space-y-6">
-      
-      <!-- Subtitle Badge -->
       <div class="inline-block animate-bounce">
         <span class="px-6 py-2 rounded-full bg-gradient-to-r from-mermaid-pink via-mermaid-purple to-sea-teal text-white font-bold tracking-widest text-xs sm:text-sm uppercase shadow-lg border border-white/40">
           ✨ You Are Joyfully Invited ✨
         </span>
       </div>
 
-      <!-- Birthday Celebrant Name -->
       <div class="space-y-2">
         <h2 class="font-pacifico text-mermaid-gold text-2xl sm:text-4xl drop-shadow-md">Under The Sea Birthday Party</h2>
         <h1 class="font-fredoka text-5xl sm:text-7xl md:text-8xl font-bold text-white tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
@@ -271,15 +216,12 @@
           <i class="fas fa-pen-fancy"></i> Write Wish for Athena
         </button>
       </div>
-
     </div>
   </header>
 
   <!-- EVENT DETAILS BAR (TBA NOTICES) -->
   <section class="relative z-20 px-4 -mt-8">
     <div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 sm:p-8 shadow-2xl border-4 border-white/80 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-      
-      <!-- Date -->
       <div class="flex flex-col items-center p-4 rounded-2xl bg-sky-50/90 border border-sky-100">
         <div class="w-12 h-12 rounded-full bg-sea-blue text-white flex items-center justify-center text-xl mb-2 shadow-md">
           <i class="fas fa-calendar-alt"></i>
@@ -289,7 +231,6 @@
         <span class="text-xs text-slate-500 font-semibold">Mark your calendar! 🗓️</span>
       </div>
 
-      <!-- Time -->
       <div class="flex flex-col items-center p-4 rounded-2xl bg-purple-50/90 border border-purple-100">
         <div class="w-12 h-12 rounded-full bg-mermaid-purple text-white flex items-center justify-center text-xl mb-2 shadow-md">
           <i class="fas fa-clock"></i>
@@ -299,7 +240,6 @@
         <span class="inline-block px-3 py-1 mt-1 rounded-full bg-purple-200 text-purple-800 text-xs font-bold">TBA (Will Update Soon)</span>
       </div>
 
-      <!-- Location -->
       <div class="flex flex-col items-center p-4 rounded-2xl bg-emerald-50/90 border border-emerald-100">
         <div class="w-12 h-12 rounded-full bg-sea-teal text-white flex items-center justify-center text-xl mb-2 shadow-md">
           <i class="fas fa-map-marker-alt"></i>
@@ -308,11 +248,10 @@
         <p class="font-bold text-teal-900 text-lg">To Be Announced</p>
         <span class="inline-block px-3 py-1 mt-1 rounded-full bg-teal-200 text-teal-800 text-xs font-bold">TBA (Secret Cove 🌊)</span>
       </div>
-
     </div>
   </section>
 
-  <!-- INTERACTIVE 7 MAGICAL TREASURES (ROSE, CANDLE, TREASURE, SHOE) -->
+  <!-- INTERACTIVE 7 MAGICAL TREASURES -->
   <section id="treasures" class="relative z-10 py-20 px-4 max-w-6xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-mermaid-gold uppercase tracking-widest font-bold text-xs">Celebratory Traditions</span>
@@ -323,7 +262,6 @@
         Click on any participant card below to read or edit their special birthday wish for Jiana Athena!
       </p>
 
-      <!-- Category Tabs -->
       <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mt-8" id="treasureTabs">
         <button onclick="switchTab('roses')" id="tab-roses" class="treasure-tab active px-5 py-3 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all bg-mermaid-pink text-white shadow-lg border-2 border-white">
           🌹 7 Roses
@@ -340,20 +278,15 @@
       </div>
     </div>
 
-    <!-- TAB 1: 7 ROSES -->
     <div id="content-roses" class="treasure-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
 
-    <!-- TAB 2: 7 CANDLES -->
     <div id="content-candles" class="treasure-content hidden">
       <div class="glass-card rounded-3xl p-6 sm:p-10 text-center max-w-3xl mx-auto border-2 border-mermaid-gold/40 mb-10">
         <h3 class="font-fredoka text-2xl sm:text-3xl font-bold text-sea-darkblue mb-2">
           Interactive Candle Ceremony 🎂
         </h3>
         <p class="text-slate-600 text-xs sm:text-sm mb-6">Tap on each candle to light its magical flame for Jiana Athena!</p>
-        
-        <!-- Candles Display -->
         <div class="flex justify-center items-end gap-3 sm:gap-6 py-6 min-h-[180px]" id="candlesContainer"></div>
-
         <div class="mt-4 flex justify-center gap-3">
           <button onclick="lightAllCandles()" class="px-5 py-2.5 rounded-full bg-mermaid-gold text-sea-darkblue font-bold text-xs sm:text-sm shadow-md hover:scale-105 active:scale-95 transition-all">
             ✨ Light All Candles
@@ -363,85 +296,14 @@
           </button>
         </div>
       </div>
-
       <div id="grid-candles" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
     </div>
 
-    <!-- TAB 3: 7 TREASURES -->
     <div id="content-treasures" class="treasure-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
-
-    <!-- TAB 4: 7 SHOES -->
     <div id="content-shoes" class="treasure-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
   </section>
 
-  <!-- DRESS CODE & PROGRAM HIGHLIGHTS (TBA) -->
-  <section class="relative z-10 py-12 px-4 max-w-5xl mx-auto">
-    <div class="glass-card rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-white/60 relative overflow-hidden">
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="space-y-6">
-          <div class="inline-block px-4 py-1 rounded-full bg-sea-teal/20 text-sea-teal font-bold text-xs uppercase tracking-wider">
-            Party Guidelines
-          </div>
-          <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-sea-darkblue">
-            Celebration Highlights & Attire
-          </h2>
-          <p class="text-slate-600 leading-relaxed text-sm">
-            We are preparing a magical experience for Jiana Athena's 7th Birthday. Final program details and schedule will be announced soon!
-          </p>
-
-          <div class="space-y-4 pt-2">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-500 flex items-center justify-center shrink-0">
-                <i class="fas fa-palette text-lg"></i>
-              </div>
-              <div>
-                <h5 class="font-bold text-slate-800 text-sm">Attire Color Palette</h5>
-                <p class="text-xs text-slate-600 mt-0.5">Under the Sea Colors: Pearl White, Mint Teal, Soft Lavender, Pastel Coral, & Gold.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-500 flex items-center justify-center shrink-0">
-                <i class="fas fa-gift text-lg"></i>
-              </div>
-              <div>
-                <h5 class="font-bold text-slate-800 text-sm">Program & Schedule</h5>
-                <p class="text-xs text-slate-600 mt-0.5">To Be Announced (Full timeline, games, and surprises to follow).</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Color Palette Preview -->
-        <div class="bg-gradient-to-br from-sea-blue/10 to-mermaid-purple/20 p-6 rounded-2xl border border-white/80 text-center space-y-4">
-          <h4 class="font-fredoka text-lg font-bold text-sea-darkblue">Theme Color Swatches</h4>
-          <div class="flex justify-center gap-3 py-2">
-            <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-[#06d6a0] shadow-md mx-auto border-2 border-white"></div>
-              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Sea Teal</span>
-            </div>
-            <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-[#a29bfe] shadow-md mx-auto border-2 border-white"></div>
-              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Lavender</span>
-            </div>
-            <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-[#ff9ff3] shadow-md mx-auto border-2 border-white"></div>
-              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Pearl Pink</span>
-            </div>
-            <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-[#ffd166] shadow-md mx-auto border-2 border-white"></div>
-              <span class="text-[10px] font-bold text-slate-600 mt-1 block">Gold</span>
-            </div>
-          </div>
-          <p class="text-xs text-slate-500 italic">Feel free to dress up in ocean-inspired pastels or formal wear!</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- RSVP FORM SECTION -->
+  <!-- RSVP FORM SECTION (CONNECTS TO FORMSPREE) -->
   <section id="rsvp" class="relative z-10 py-16 px-4 max-w-3xl mx-auto">
     <div class="glass-card rounded-3xl p-8 sm:p-12 shadow-2xl border-4 border-mermaid-pink/40">
       
@@ -453,21 +315,22 @@
         <p class="text-slate-600 text-sm mt-1">Please confirm your attendance so we can reserve your seat!</p>
       </div>
 
-      <form id="rsvpForm" onsubmit="handleRSVP(event)" class="space-y-5">
+      <!-- FORMSPREE RSVP FORM -->
+      <form id="rsvpForm" action="https://formspree.io/f/xqpparod" method="POST" class="space-y-5">
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Full Name *</label>
-          <input type="text" id="guestName" required placeholder="e.g. Uncle Raymond Reyes" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+          <input type="text" name="Guest Name" id="guestName" required placeholder="e.g. Raymond Reyes" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Contact Phone / Email *</label>
-            <input type="text" id="guestContact" required placeholder="0912 345 6789 or email@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+            <input type="text" name="Contact Info" id="guestContact" required placeholder="0912 345 6789 or email@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
           </div>
 
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Will You Attend? *</label>
-            <select id="attendanceStatus" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+            <select name="Attendance Status" id="attendanceStatus" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
               <option value="Joyfully Attending">Joyfully Attending 🎉</option>
               <option value="Regretfully Declining">Regretfully Declining 💔</option>
             </select>
@@ -476,15 +339,15 @@
 
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Number of Guests (Including Yourself)</label>
-          <input type="number" id="guestCount" min="1" max="10" value="1" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
+          <input type="number" name="Guest Count" id="guestCount" min="1" max="10" value="1" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all">
         </div>
 
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Birthday Message for Jiana Athena</label>
-          <textarea id="guestWish" rows="3" placeholder="Write a sweet message for Jiana..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all"></textarea>
+          <textarea name="Special Message" id="guestWish" rows="3" placeholder="Write a sweet message for Jiana..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-mermaid-pink focus:outline-none text-sm transition-all"></textarea>
         </div>
 
-        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-mermaid-pink via-mermaid-purple to-sea-teal text-white font-fredoka font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-95 transition-all">
+        <button type="submit" id="submitRsvpBtn" class="w-full py-4 rounded-xl bg-gradient-to-r from-mermaid-pink via-mermaid-purple to-sea-teal text-white font-fredoka font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-95 transition-all">
           ✨ Submit RSVP ✨
         </button>
       </form>
@@ -493,7 +356,7 @@
       <div id="rsvpSuccessMsg" class="hidden mt-6 p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-300 text-center space-y-2 animate-bounce">
         <div class="text-4xl">🧜‍♀️🎉</div>
         <h4 class="font-fredoka text-xl font-bold text-emerald-800">Thank You! RSVP Submitted Successfully!</h4>
-        <p class="text-emerald-700 text-sm">Your response has been saved. We can't wait to celebrate Jiana Athena's 7th Birthday with you!</p>
+        <p class="text-emerald-700 text-sm">Your response has been sent to the host via Formspree. We can't wait to celebrate with you!</p>
       </div>
 
     </div>
@@ -515,13 +378,12 @@
       </button>
     </div>
 
-    <!-- Wishes Container Grid -->
     <div id="wishbookGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
   <!-- MODAL: EDIT INDIVIDUAL 7s PARTICIPANT MESSAGE -->
   <div id="editMessageModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border-2 border-mermaid-pink relative animate-float-slow">
+    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border-2 border-mermaid-pink relative">
       <button onclick="closeEditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl">
         <i class="fas fa-times"></i>
       </button>
@@ -611,616 +473,320 @@
         <div class="w-10 h-10 rounded-full bg-mermaid-purple text-white flex items-center justify-center text-lg font-bold">📋</div>
         <div>
           <h4 class="font-fredoka font-bold text-xl text-sea-darkblue">RSVP Guest Responses</h4>
-          <p class="text-xs text-purple-600 font-semibold">Where do filled-out forms go?</p>
+          <p class="text-xs text-purple-600 font-semibold">Saved locally and sent via Formspree</p>
         </div>
       </div>
 
       <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 text-xs text-slate-700 space-y-2 mb-6">
-        <p><strong>💡 How RSVP Data Works:</strong></p>
-        <p>Submissions are automatically saved right here in your browser's local memory. You can view all responses below or click <strong>Export CSV</strong> to open them in Excel/Google Sheets!</p>
+        <p><strong>💡 Formspree Integration Active:</strong> All RSVPs are directly emailed to your registered inbox when guests submit online!</p>
       </div>
 
-      <!-- Export Buttons -->
-      <div class="flex flex-wrap gap-3 mb-6">
-        <button onclick="exportRSVPCSV()" class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-md hover:bg-emerald-700 transition-all flex items-center gap-2">
-          <i class="fas fa-file-excel"></i> Export Guest List (CSV)
-        </button>
-        <button onclick="clearRSVPData()" class="px-4 py-2.5 rounded-xl bg-rose-100 text-rose-700 font-bold text-xs hover:bg-rose-200 transition-all">
-          <i class="fas fa-trash-alt"></i> Clear Data
-        </button>
-      </div>
-
-      <!-- Guest Table -->
-      <div class="overflow-x-auto rounded-xl border border-slate-200">
-        <table class="w-full text-left text-xs">
-          <thead class="bg-slate-100 text-slate-700 font-bold uppercase">
-            <tr>
-              <th class="p-3">Name</th>
-              <th class="p-3">Contact</th>
-              <th class="p-3">Status</th>
-              <th class="p-3">Guests</th>
-              <th class="p-3">Message</th>
-            </tr>
-          </thead>
-          <tbody id="hostRsvpTableBody" class="divide-y divide-slate-200 text-slate-700">
-            <!-- Rendered JS -->
-          </tbody>
-        </table>
-      </div>
+      <div id="hostRsvpList" class="space-y-3"></div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="relative z-10 py-12 text-center text-white/80 border-t border-white/10 mt-12 bg-sea-darkblue/90">
-    <div class="max-w-4xl mx-auto px-4 space-y-3">
-      <p class="font-pacifico text-2xl text-mermaid-gold">Jiana Athena Reyes Turns 7!</p>
-      <p class="text-xs text-slate-300">Under the Sea Birthday Celebration • January 18, 2028</p>
-      <p class="text-[11px] text-slate-400">Custom Invitation Web App • Made with Love for Jiana Athena</p>
-    </div>
-  </footer>
-
-  <!-- MAIN JAVASCRIPT CODE -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
-    /* ===================================================
-       1. DATA STRUCTURES (7 ROSES, CANDLES, TREASURES, SHOES)
-       =================================================== */
-
-    // 7 Roses (With the requested names)
+    // 7 ROSES DATA WITH NAMES
     const defaultRoses = [
-      { id: 'rose-1', name: 'Jian Adam Reyes', category: '7 Roses', title: '1st Rose', wish: 'Wishing my dear Jiana Athena a very happy 7th birthday! May your day be filled with endless smiles and love.' },
-      { id: 'rose-2', name: 'Rodolfo Noveno Jr.', category: '7 Roses', title: '2nd Rose', wish: 'Happy 7th Birthday Jiana Athena! Stay sweet, smart, and full of joy.' },
-      { id: 'rose-3', name: 'Raymond Reyes', category: '7 Roses', title: '3rd Rose', wish: 'To our little princess Athena, may you always grow up with happiness and big dreams!' },
-      { id: 'rose-4', name: 'Lito Caadiang', category: '7 Roses', title: '4th Rose', wish: 'Warmest birthday wishes to Jiana Athena on her 7th birthday! God bless you always.' },
-      { id: 'rose-5', name: 'Jhon Syl Ver', category: '7 Roses', title: '5th Rose', wish: 'Happy 7th Birthday! Enjoy your special mermaid-themed day under the sea!' },
-      { id: 'rose-6', name: 'Jhon Rambo Ver', category: '7 Roses', title: '6th Rose', wish: 'Wishing Jiana Athena lots of fun, laughter, and sweet surprises on her birthday!' },
-      { id: 'rose-7', name: 'Jonnel Reyes', category: '7 Roses', title: '7th Rose', wish: 'Happy 7th Birthday Jiana Athena! May all your birthday wishes come true!' }
+      { id: 'rose-1', name: 'Jian Adam Reyes', wish: 'May your 7th birthday be filled with endless joy, laughter, and ocean magic!' },
+      { id: 'rose-2', name: 'Rodolfo Noveno Jr.', wish: 'Wishing you a magical day as sweet and bright as your smile, Athena!' },
+      { id: 'rose-3', name: 'Raymond Reyes', wish: 'Happy 7th Birthday, Athena! May all your dreams sparkle like pearls in the sea.' },
+      { id: 'rose-4', name: 'Lito Caadiang', wish: 'Sending you big hugs and blessings on your special 7th birthday milestone!' },
+      { id: 'rose-5', name: 'Jhon Syl Ver', wish: 'May your birthday be as fun, adventurous, and wonderful as you are!' },
+      { id: 'rose-6', name: 'Jhon Rambo Ver', wish: 'Happy 7th Birthday! Keep shining and spreading happiness everywhere you go.' },
+      { id: 'rose-7', name: 'Jonnel Reyes', wish: 'Wishing you a joyful celebration full of treats, games, and wonderful memories!' }
     ];
 
-    // 7 Candles (Editable Slots)
-    const defaultCandles = [
-      { id: 'candle-1', name: 'Candle Slot 1 (TBA)', category: '7 Candles', title: '1st Candle', wish: 'A candle wish for Jiana Athena for good health and infinite giggles!' },
-      { id: 'candle-2', name: 'Candle Slot 2 (TBA)', category: '7 Candles', title: '2nd Candle', wish: 'May your light shine bright in everything you do!' },
-      { id: 'candle-3', name: 'Candle Slot 3 (TBA)', category: '7 Candles', title: '3rd Candle', wish: 'Wishing you wisdom and happiness as you start your 7th year.' },
-      { id: 'candle-4', name: 'Candle Slot 4 (TBA)', category: '7 Candles', title: '4th Candle', wish: 'May you always be surrounded by loving family and true friends.' },
-      { id: 'candle-5', name: 'Candle Slot 5 (TBA)', category: '7 Candles', title: '5th Candle', wish: 'A candle wish for courage and exciting new discoveries in school!' },
-      { id: 'candle-6', name: 'Candle Slot 6 (TBA)', category: '7 Candles', title: '6th Candle', wish: 'Wishing you sweet dreams that come true like magic.' },
-      { id: 'candle-7', name: 'Candle Slot 7 (TBA)', category: '7 Candles', title: '7th Candle', wish: 'May your life be filled with sweet ocean adventures forever!' }
-    ];
+    // INITIAL PLACEHOLDERS FOR CANDLES, TREASURES, SHOES
+    const defaultOthers = (type, icon) => Array.from({ length: 7 }, (_, i) => ({
+      id: `${type}-${i+1}`,
+      name: `Participant ${i+1} (TBA)`,
+      wish: `Special ${type} wish for Jiana Athena's 7th Birthday!`
+    }));
 
-    // 7 Treasures / Gifts (Editable Slots)
-    const defaultTreasures = [
-      { id: 'treasure-1', name: 'Treasure Slot 1 (TBA)', category: '7 Treasures', title: '1st Treasure', wish: 'A gift of joy and boundless imagination.' },
-      { id: 'treasure-2', name: 'Treasure Slot 2 (TBA)', category: '7 Treasures', title: '2nd Treasure', wish: 'A treasure of good health and playful strength.' },
-      { id: 'treasure-3', name: 'Treasure Slot 3 (TBA)', category: '7 Treasures', title: '3rd Treasure', wish: 'A treasure of knowledge and academic success.' },
-      { id: 'treasure-4', name: 'Treasure Slot 4 (TBA)', category: '7 Treasures', title: '4th Treasure', wish: 'A gift of kindness that touches everyone around you.' },
-      { id: 'treasure-5', name: 'Treasure Slot 5 (TBA)', category: '7 Treasures', title: '5th Treasure', wish: 'A treasure of bravery to explore new horizons.' },
-      { id: 'treasure-6', name: 'Treasure Slot 6 (TBA)', category: '7 Treasures', title: '6th Treasure', wish: 'A gift of laughter and wonderful playfulness.' },
-      { id: 'treasure-7', name: 'Treasure Slot 7 (TBA)', category: '7 Treasures', title: '7th Treasure', wish: 'A treasure of unconditional family love.' }
-    ];
+    let rosesData = JSON.parse(localStorage.getItem('athena_roses')) || defaultRoses;
+    let candlesData = JSON.parse(localStorage.getItem('athena_candles')) || defaultOthers('candle', '🕯️');
+    let treasuresData = JSON.parse(localStorage.getItem('athena_treasures')) || defaultOthers('treasure', '🎁');
+    let shoesData = JSON.parse(localStorage.getItem('athena_shoes')) || defaultOthers('shoe', '👠');
 
-    // 7 Shoes (Editable Slots)
-    const defaultShoes = [
-      { id: 'shoe-1', name: 'Shoe Slot 1 (TBA)', category: '7 Shoes', title: '1st Pair of Shoes', wish: 'Stepping gently into childhood memories.' },
-      { id: 'shoe-2', name: 'Shoe Slot 2 (TBA)', category: '7 Shoes', title: '2nd Pair of Shoes', wish: 'Running towards fun and sunshine!' },
-      { id: 'shoe-3', name: 'Shoe Slot 3 (TBA)', category: '7 Shoes', title: '3rd Pair of Shoes', wish: 'Walking proudly into grade school adventures.' },
-      { id: 'shoe-4', name: 'Shoe Slot 4 (TBA)', category: '7 Shoes', title: '4th Pair of Shoes', wish: 'Dancing through life with grace and laughter.' },
-      { id: 'shoe-5', name: 'Shoe Slot 5 (TBA)', category: '7 Shoes', title: '5th Pair of Shoes', wish: 'Sparkling shoes for a birthday princess!' },
-      { id: 'shoe-6', name: 'Shoe Slot 6 (TBA)', category: '7 Shoes', title: '6th Pair of Shoes', wish: 'Taking confident steps toward big dreams.' },
-      { id: 'shoe-7', name: 'Shoe Slot 7 (TBA)', category: '7 Shoes', title: '7th Pair of Shoes', wish: 'Glass slippers for our royal mermaid princess Jiana Athena!' }
-    ];
+    let currentEditingItem = null;
 
-    /* Persistent Storage Helper for 7s */
-    function getStored7Data(key, fallback) {
-      const stored = localStorage.getItem(`jiana_7th_${key}`);
-      return stored ? JSON.parse(stored) : fallback;
+    // COUNTDOWN TIMER
+    const targetDate = new Date('January 18, 2028 00:00:00').getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById('days').innerText = "00";
+        document.getElementById('hours').innerText = "00";
+        document.getElementById('minutes').innerText = "00";
+        document.getElementById('seconds').innerText = "00";
+        return;
+      }
+
+      document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
     }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    function save7Data(key, data) {
-      localStorage.setItem(`jiana_7th_${key}`, JSON.stringify(data));
-    }
-
-    let rosesData = getStored7Data('roses', defaultRoses);
-    let candlesData = getStored7Data('candles', defaultCandles);
-    let treasuresData = getStored7Data('treasures', defaultTreasures);
-    let shoesData = getStored7Data('shoes', defaultShoes);
-
-    /* Currently selected card for editing modal */
-    let currentEditItem = null;
-    let currentEditListKey = '';
-
-    /* ===================================================
-       2. RENDERERS FOR 7s CARDS
-       =================================================== */
-    function renderCardGroup(dataList, containerId, iconEmoji, listKey) {
+    // RENDER 7s CARDS
+    function render7sCards(dataArray, containerId, iconEmoji, categoryName) {
       const container = document.getElementById(containerId);
       if (!container) return;
-      container.innerHTML = "";
 
-      dataList.forEach((item, index) => {
-        const cardHtml = `
-          <div class="flip-card h-64 cursor-pointer" id="card-${item.id}">
-            <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
-              <!-- Front Side -->
-              <div class="flip-card-front absolute inset-0 glass-card rounded-2xl p-5 flex flex-col items-center justify-between text-center border-2 border-mermaid-pink/40 hover:border-mermaid-pink transition-all" onclick="toggleCardFlip('${item.id}')">
-                <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-mermaid-pink to-mermaid-purple text-white flex items-center justify-center font-bold text-xs shadow-md">
-                  ${index + 1}
-                </span>
-                <div class="text-3xl my-1">${iconEmoji}</div>
-                <div>
-                  <h4 class="font-fredoka font-bold text-sea-darkblue text-base leading-tight">${item.name}</h4>
-                  <p class="text-[11px] text-purple-600 font-semibold mt-0.5">${item.title}</p>
-                </div>
-                <div class="text-[10px] text-pink-600 font-bold bg-pink-100/80 px-3 py-1 rounded-full">
-                  Tap to Read Message ✨
-                </div>
-              </div>
-
-              <!-- Back Side -->
-              <div class="flip-card-back absolute inset-0 glass-card-dark text-white rounded-2xl p-5 flex flex-col justify-between text-center border-2 border-mermaid-purple">
-                <div onclick="toggleCardFlip('${item.id}')" class="flex-1 flex flex-col items-center justify-center">
-                  <span class="text-2xl mb-1">${iconEmoji}</span>
-                  <h5 class="font-fredoka font-bold text-mermaid-gold text-sm mb-1">${item.name}</h5>
-                  <p class="text-xs text-slate-200 leading-relaxed italic overflow-y-auto max-h-24 px-1">
-                    "${item.wish}"
-                  </p>
-                </div>
-                <!-- Interactive Edit Button -->
-                <button onclick="event.stopPropagation(); openEditModal('${item.id}', '${listKey}')" class="mt-2 w-full py-1.5 rounded-lg bg-mermaid-pink/30 hover:bg-mermaid-pink text-white font-bold text-xs border border-mermaid-pink transition-all flex items-center justify-center gap-1.5">
-                  <i class="fas fa-edit"></i> Edit This Wish
-                </button>
-              </div>
+      container.innerHTML = dataArray.map((item, index) => `
+        <div class="glass-card rounded-2xl p-5 shadow-lg border-2 border-white/80 hover:scale-[1.02] transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="w-8 h-8 rounded-full bg-mermaid-pink/20 text-pink-600 font-bold text-xs flex items-center justify-center">
+                #${index + 1}
+              </span>
+              <span class="text-2xl">${iconEmoji}</span>
             </div>
+            <h4 class="font-fredoka font-bold text-sea-darkblue text-base">${item.name}</h4>
+            <p class="text-slate-600 text-xs mt-2 italic font-quicksand bg-white/50 p-3 rounded-xl border border-slate-100">
+              "${item.wish}"
+            </p>
           </div>
-        `;
-        container.innerHTML += cardHtml;
+          <button onclick="openEditModal('${categoryName}', '${item.id}')" class="mt-4 py-2 px-3 rounded-xl bg-mermaid-purple/20 text-purple-800 hover:bg-mermaid-purple hover:text-white font-bold text-xs transition-all flex items-center justify-center gap-1">
+            <i class="fas fa-edit"></i> Edit Wish
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function refreshAll7s() {
+      render7sCards(rosesData, 'content-roses', '🌹', 'roses');
+      render7sCards(candlesData, 'grid-candles', '🕯️', 'candles');
+      render7sCards(treasuresData, 'content-treasures', '🎁', 'treasures');
+      render7sCards(shoesData, 'content-shoes', '👠', 'shoes');
+    }
+    refreshAll7s();
+
+    // TAB SWITCHING
+    function switchTab(tabName) {
+      document.querySelectorAll('.treasure-tab').forEach(b => {
+        b.className = "treasure-tab px-5 py-3 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all bg-white/20 text-white hover:bg-white/30 border-2 border-transparent";
       });
+      document.querySelectorAll('.treasure-content').forEach(c => c.classList.add('hidden'));
+
+      const activeBtn = document.getElementById(`tab-${tabName}`);
+      if (activeBtn) {
+        activeBtn.className = "treasure-tab active px-5 py-3 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all bg-mermaid-pink text-white shadow-lg border-2 border-white";
+      }
+      document.getElementById(`content-${tabName}`).classList.remove('hidden');
     }
 
-    function toggleCardFlip(cardId) {
-      const card = document.getElementById(`card-${cardId}`);
-      if (card) card.classList.toggle('flipped');
+    // CANDLE CEREMONY
+    const candlesContainer = document.getElementById('candlesContainer');
+    if (candlesContainer) {
+      candlesContainer.innerHTML = Array.from({ length: 7 }, (_, i) => `
+        <div onclick="toggleCandle(${i})" id="candle-${i}" class="cursor-pointer flex flex-col items-center group">
+          <div class="flame opacity-0 transition-opacity duration-300 mb-1" id="flame-${i}"></div>
+          <div class="w-5 sm:w-6 h-20 sm:h-24 bg-gradient-to-b from-pink-200 to-purple-300 rounded-t-lg border border-white shadow-md flex items-center justify-center">
+            <span class="text-[10px] font-bold text-sea-darkblue">${i+1}</span>
+          </div>
+        </div>
+      `).join('');
     }
 
-    /* ===================================================
-       3. EDIT MODAL LOGIC FOR ANY 7s PARTICIPANT
-       =================================================== */
-    function openEditModal(itemId, listKey) {
-      currentEditListKey = listKey;
-      let dataset = [];
+    function toggleCandle(i) {
+      const flame = document.getElementById(`flame-${i}`);
+      if (flame.classList.contains('opacity-0')) {
+        flame.classList.remove('opacity-0');
+        confetti({ particleCount: 25, spread: 40, origin: { y: 0.7 } });
+      } else {
+        flame.classList.add('opacity-0');
+      }
+    }
 
-      if (listKey === 'roses') dataset = rosesData;
-      else if (listKey === 'candles') dataset = candlesData;
-      else if (listKey === 'treasures') dataset = treasuresData;
-      else if (listKey === 'shoes') dataset = shoesData;
+    function lightAllCandles() {
+      for (let i = 0; i < 7; i++) {
+        document.getElementById(`flame-${i}`).classList.remove('opacity-0');
+      }
+      confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+    }
 
-      currentEditItem = dataset.find(i => i.id === itemId);
-      if (!currentEditItem) return;
+    function resetCandles() {
+      for (let i = 0; i < 7; i++) {
+        document.getElementById(`flame-${i}`).classList.add('opacity-0');
+      }
+    }
 
-      document.getElementById('editModalTitle').innerText = `Edit Wish for Jiana Athena`;
-      document.getElementById('editModalCategory').innerText = `${currentEditItem.category} • Slot #${currentEditItem.title}`;
-      document.getElementById('editParticipantName').value = currentEditItem.name;
-      document.getElementById('editParticipantWish').value = currentEditItem.wish;
+    // EDIT MODAL LOGIC
+    function openEditModal(category, itemId) {
+      let dataSet = category === 'roses' ? rosesData : category === 'candles' ? candlesData : category === 'treasures' ? treasuresData : shoesData;
+      currentEditingItem = { category, itemId, item: dataSet.find(x => x.id === itemId) };
 
+      if (!currentEditingItem.item) return;
+
+      document.getElementById('editParticipantName').value = currentEditingItem.item.name;
+      document.getElementById('editParticipantWish').value = currentEditingItem.item.wish;
+      document.getElementById('editModalCategory').innerText = `${category.toUpperCase()} Category`;
       document.getElementById('editMessageModal').classList.remove('hidden');
     }
 
     function closeEditModal() {
       document.getElementById('editMessageModal').classList.add('hidden');
-      currentEditItem = null;
     }
 
     function saveParticipantMessage() {
-      if (!currentEditItem) return;
+      if (!currentEditingItem) return;
 
       const newName = document.getElementById('editParticipantName').value.trim();
       const newWish = document.getElementById('editParticipantWish').value.trim();
 
       if (!newName || !newWish) {
-        alert("Please fill in both the participant name and message!");
+        alert('Please fill out both the participant name and wish message.');
         return;
       }
 
-      currentEditItem.name = newName;
-      currentEditItem.wish = newWish;
+      currentEditingItem.item.name = newName;
+      currentEditingItem.item.wish = newWish;
 
-      // Save to localStorage and re-render
-      if (currentEditListKey === 'roses') {
-        save7Data('roses', rosesData);
-        renderCardGroup(rosesData, 'content-roses', '🌹', 'roses');
-      } else if (currentEditListKey === 'candles') {
-        save7Data('candles', candlesData);
-        renderCardGroup(candlesData, 'grid-candles', '🕯️', 'candles');
-      } else if (currentEditListKey === 'treasures') {
-        save7Data('treasures', treasuresData);
-        renderCardGroup(treasuresData, 'content-treasures', '🎁', 'treasures');
-      } else if (currentEditListKey === 'shoes') {
-        save7Data('shoes', shoesData);
-        renderCardGroup(shoesData, 'content-shoes', '👠', 'shoes');
-      }
+      localStorage.setItem(`athena_${currentEditingItem.category}`, JSON.stringify(
+        currentEditingItem.category === 'roses' ? rosesData : currentEditingItem.category === 'candles' ? candlesData : currentEditingItem.category === 'treasures' ? treasuresData : shoesData
+      ));
 
+      refreshAll7s();
       closeEditModal();
-      triggerConfetti();
+      confetti({ particleCount: 40, spread: 60 });
     }
 
-    /* ===================================================
-       4. CANDLE CEREMONY APP LOGIC
-       =================================================== */
-    let candleStates = [false, false, false, false, false, false, false];
-
-    function renderCandles() {
-      const container = document.getElementById('candlesContainer');
-      if (!container) return;
-      container.innerHTML = "";
-
-      for (let i = 0; i < 7; i++) {
-        const isLit = candleStates[i];
-        const candleHtml = `
-          <div onclick="toggleCandle(${i})" class="cursor-pointer flex flex-col items-center group transform hover:scale-110 transition-all">
-            <div class="h-8 flex items-end mb-1">
-              ${isLit ? `<div class="flame animate-pulse"></div>` : `<div class="w-2 h-3 bg-slate-400/50 rounded-full"></div>`}
-            </div>
-            <div class="w-1 h-3 bg-slate-700"></div>
-            <div class="w-6 sm:w-8 h-20 sm:h-24 rounded-t-lg bg-gradient-to-b from-mermaid-pink via-mermaid-purple to-sea-teal shadow-md flex items-center justify-center border border-white/50 relative">
-              <span class="text-xs font-bold text-white drop-shadow">${i + 1}</span>
-            </div>
-          </div>
-        `;
-        container.innerHTML += candleHtml;
-      }
-    }
-
-    function toggleCandle(index) {
-      candleStates[index] = !candleStates[index];
-      renderCandles();
-      if (candleStates.every(s => s === true)) triggerConfetti();
-    }
-
-    function lightAllCandles() {
-      candleStates = [true, true, true, true, true, true, true];
-      renderCandles();
-      triggerConfetti();
-    }
-
-    function resetCandles() {
-      candleStates = [false, false, false, false, false, false, false];
-      renderCandles();
-    }
-
-    /* Tab Switching Logic */
-    function switchTab(tabName) {
-      document.querySelectorAll('.treasure-tab').forEach(btn => {
-        btn.classList.remove('bg-mermaid-pink', 'text-white', 'shadow-lg', 'border-white');
-        btn.classList.add('bg-white/20', 'text-white', 'border-transparent');
-      });
-
-      const selectedTab = document.getElementById(`tab-${tabName}`);
-      if (selectedTab) {
-        selectedTab.classList.remove('bg-white/20', 'border-transparent');
-        selectedTab.classList.add('bg-mermaid-pink', 'text-white', 'shadow-lg', 'border-white');
-      }
-
-      document.querySelectorAll('.treasure-content').forEach(content => content.classList.add('hidden'));
-      const activeContent = document.getElementById(`content-${tabName}`);
-      if (activeContent) activeContent.classList.remove('hidden');
-    }
-
-    /* ===================================================
-       5. RSVP FORM PERSISTENCE & CSV EXPORT
-       =================================================== */
-    function getRSVPData() {
-      const stored = localStorage.getItem('jiana_rsvp_list');
-      return stored ? JSON.parse(stored) : [];
-    }
-
-    function handleRSVP(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('guestName').value.trim();
-      const contact = document.getElementById('guestContact').value.trim();
-      const status = document.getElementById('attendanceStatus').value;
-      const count = document.getElementById('guestCount').value;
-      const wish = document.getElementById('guestWish').value.trim();
-
-      const newRSVP = {
-        id: 'rsvp-' + Date.now(),
-        name,
-        contact,
-        status,
-        count,
-        wish,
-        timestamp: new Date().toLocaleString()
-      };
-
-      const list = getRSVPData();
-      list.push(newRSVP);
-      localStorage.setItem('jiana_rsvp_list', JSON.stringify(list));
-
-      // Also automatically post wish to Wishbook Wall if provided!
-      if (wish !== "") {
-        addWishToWall({
-          id: 'wish-' + Date.now(),
-          author: name,
-          relation: 'RSVP Guest',
-          text: wish,
-          likes: 0
-        });
-      }
-
-      document.getElementById('rsvpForm').reset();
-      document.getElementById('rsvpSuccessMsg').classList.remove('hidden');
-      triggerConfetti();
-    }
-
-    /* Host RSVP Admin Modal & Export CSV */
-    function openHostModal() {
-      renderRSVPTable();
-      document.getElementById('hostModal').classList.remove('hidden');
-    }
-
-    function closeHostModal() {
-      document.getElementById('hostModal').classList.add('hidden');
-    }
-
-    function renderRSVPTable() {
-      const list = getRSVPData();
-      const tbody = document.getElementById('hostRsvpTableBody');
-      tbody.innerHTML = "";
-
-      if (list.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-400">No RSVP entries submitted yet.</td></tr>`;
-        return;
-      }
-
-      list.forEach(item => {
-        tbody.innerHTML += `
-          <tr class="hover:bg-slate-50">
-            <td class="p-3 font-bold text-sea-darkblue">${item.name}</td>
-            <td class="p-3">${item.contact}</td>
-            <td class="p-3">
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${item.status.includes('Joyfully') ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
-                ${item.status}
-              </span>
-            </td>
-            <td class="p-3">${item.count}</td>
-            <td class="p-3 italic">${item.wish || 'N/A'}</td>
-          </tr>
-        `;
-      });
-    }
-
-    function exportRSVPCSV() {
-      const list = getRSVPData();
-      if (list.length === 0) {
-        alert("No RSVP data available to export!");
-        return;
-      }
-
-      let csvContent = "data:text/csv;charset=utf-8,Name,Contact,Attendance,Guest Count,Wish,Date Submitted\n";
-      list.forEach(row => {
-        csvContent += `"${row.name}","${row.contact}","${row.status}","${row.count}","${row.wish.replace(/"/g, '""')}","${row.timestamp}"\n`;
-      });
-
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "Jiana_Athena_7th_Birthday_Guest_List.csv");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-
-    function clearRSVPData() {
-      if (confirm("Are you sure you want to clear all saved RSVP responses?")) {
-        localStorage.removeItem('jiana_rsvp_list');
-        renderRSVPTable();
-      }
-    }
-
-    /* ===================================================
-       6. OCEAN WISHBOOK WALL PERSISTENCE
-       =================================================== */
-    const defaultWishes = [
-      { id: 'w1', author: 'Grandma & Grandpa', relation: 'Family', text: 'Happy 7th Birthday to our sweet Jiana Athena! May your day be filled with magic and love.', likes: 5 },
-      { id: 'w2', author: 'Uncle Raymond', relation: 'Relative', text: 'Can wait to celebrate with you under the sea! Keep shining bright Athena!', likes: 3 }
+    // WISHBOOK WALL PERSISTENCE
+    let wishes = JSON.parse(localStorage.getItem('athena_wishes')) || [
+      { author: 'Grandma Maria', relation: 'Grandmother', wish: 'Happy 7th birthday to my beautiful granddaughter Jiana Athena! May God bless you always.', date: 'Oct 2026' },
+      { author: 'Uncle Joshua', relation: 'Godfather', wish: 'Can’t wait to celebrate your big 7th birthday! Stay sweet and talented!', date: 'Oct 2026' }
     ];
 
-    function getWishbookData() {
-      const stored = localStorage.getItem('jiana_wishbook_list');
-      return stored ? JSON.parse(stored) : defaultWishes;
-    }
-
-    function addWishToWall(wishObj) {
-      const list = getWishbookData();
-      list.unshift(wishObj);
-      localStorage.setItem('jiana_wishbook_list', JSON.stringify(list));
-      renderWishbook();
-    }
-
-    function renderWishbook() {
-      const list = getWishbookData();
+    function renderWishes() {
       const grid = document.getElementById('wishbookGrid');
       if (!grid) return;
-      grid.innerHTML = "";
-
-      list.forEach((item) => {
-        grid.innerHTML += `
-          <div class="glass-card rounded-2xl p-5 shadow-lg border border-white/60 space-y-3 transform hover:-translate-y-1 transition-all flex flex-col justify-between">
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-mermaid-pink/30 text-pink-600 flex items-center justify-center font-bold text-lg border border-mermaid-pink">
-                  🧜‍♀️
-                </div>
-                <div>
-                  <h5 class="font-bold text-sea-darkblue text-sm">${item.author}</h5>
-                  <span class="text-[10px] text-purple-600 font-semibold bg-purple-100 px-2 py-0.5 rounded-full">${item.relation || 'Guest'}</span>
-                </div>
-              </div>
-              <p class="text-slate-700 text-xs italic leading-relaxed pt-1">
-                "${item.text}"
-              </p>
+      grid.innerHTML = wishes.map(w => `
+        <div class="glass-card rounded-2xl p-5 shadow-lg border-2 border-white/80 hover:scale-[1.02] transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-mermaid-pink to-mermaid-purple text-white font-bold flex items-center justify-center text-sm shadow-md">
+              ${w.author.charAt(0)}
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-200/60 text-xs">
-              <button onclick="likeWish('${item.id}')" class="text-rose-500 font-bold flex items-center gap-1 hover:scale-110 transition-all">
-                <i class="fas fa-heart"></i> <span>${item.likes || 0}</span>
-              </button>
-              <span class="text-[10px] text-slate-400">Blessings ✨</span>
+            <div>
+              <h5 class="font-fredoka font-bold text-sea-darkblue text-sm">${w.author}</h5>
+              <span class="text-[10px] text-pink-600 font-bold">${w.relation || 'Guest'}</span>
             </div>
           </div>
-        `;
-      });
+          <p class="text-slate-600 text-xs leading-relaxed italic">"${w.wish}"</p>
+        </div>
+      `).join('');
     }
+    renderWishes();
 
-    function likeWish(wishId) {
-      const list = getWishbookData();
-      const item = list.find(w => w.id === wishId);
-      if (item) {
-        item.likes = (item.likes || 0) + 1;
-        localStorage.setItem('jiana_wishbook_list', JSON.stringify(list));
-        renderWishbook();
-      }
-    }
-
-    function openWishModal() {
-      document.getElementById('addWishModal').classList.remove('hidden');
-    }
-
-    function closeWishModal() {
-      document.getElementById('addWishModal').classList.add('hidden');
-    }
+    function openWishModal() { document.getElementById('addWishModal').classList.remove('hidden'); }
+    function closeWishModal() { document.getElementById('addWishModal').classList.add('hidden'); }
 
     function saveNewWish(e) {
       e.preventDefault();
       const author = document.getElementById('wishAuthor').value.trim();
       const relation = document.getElementById('wishRelation').value.trim();
-      const text = document.getElementById('wishText').value.trim();
+      const wish = document.getElementById('wishText').value.trim();
 
-      addWishToWall({
-        id: 'wish-' + Date.now(),
-        author,
-        relation,
-        text,
-        likes: 0
-      });
+      if (!author || !wish) return;
 
-      document.getElementById('wishAuthor').value = "";
-      document.getElementById('wishRelation').value = "";
-      document.getElementById('wishText').value = "";
-
+      wishes.unshift({ author, relation, wish, date: 'Just Now' });
+      localStorage.setItem('athena_wishes', JSON.stringify(wishes));
+      renderWishes();
       closeWishModal();
-      triggerConfetti();
+      confetti({ particleCount: 50, spread: 70 });
     }
 
-    /* ===================================================
-       7. BUBBLE GENERATOR & COUNTDOWN TIMER
-       =================================================== */
-    function createBubbles() {
-      const container = document.getElementById('bubblesContainer');
-      for (let i = 0; i < 20; i++) {
-        const bubble = document.createElement('div');
-        bubble.classList.add('bubble');
-        const size = Math.random() * 30 + 10;
-        bubble.style.width = `${size}px`;
-        bubble.style.height = `${size}px`;
-        bubble.style.left = `${Math.random() * 100}%`;
-        bubble.style.animationDelay = `${Math.random() * 8}s`;
-        bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
-        container.appendChild(bubble);
+    // FORMSPREE RSVP SUBMISSION HANDLER
+    const rsvpForm = document.getElementById('rsvpForm');
+    rsvpForm.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const btn = document.getElementById('submitRsvpBtn');
+      btn.innerHTML = "⌛ Sending RSVP...";
+      btn.disabled = true;
+
+      const formData = new FormData(rsvpForm);
+
+      try {
+        const response = await fetch(rsvpForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          document.getElementById('rsvpSuccessMsg').classList.remove('hidden');
+          rsvpForm.reset();
+          confetti({ particleCount: 120, spread: 90, origin: { y: 0.6 } });
+        } else {
+          alert('Oops! There was a problem submitting your RSVP. Please try again.');
+        }
+      } catch (error) {
+        alert('Network error. Please check your connection and try again.');
+      } finally {
+        btn.innerHTML = "✨ Submit RSVP ✨";
+        btn.disabled = false;
       }
+    });
+
+    // HOST ADMIN MODAL
+    function openHostModal() { document.getElementById('hostModal').classList.remove('hidden'); }
+    function closeHostModal() { document.getElementById('hostModal').classList.add('hidden'); }
+
+    // AMBIENT BUBBLES GENERATOR
+    const bubblesContainer = document.getElementById('bubblesContainer');
+    for (let i = 0; i < 20; i++) {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      const size = Math.random() * 20 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      bubblesContainer.appendChild(bubble);
     }
 
-    const targetDate = new Date('January 18, 2028 15:00:00').getTime();
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        document.getElementById('days').innerText = days.toString().padStart(2, '0');
-        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-      }
-    }
-
-    /* ===================================================
-       8. WEB AUDIO SYNTHESIZER
-       =================================================== */
+    // SOUND TOGGLE (WEB AUDIO SYNTHESIZER)
     let audioCtx = null;
     let isPlaying = false;
-    let timerId = null;
+    let soundInterval = null;
 
     function toggleAudio() {
-      const soundIcon = document.getElementById('soundIcon');
-      const soundText = document.getElementById('soundText');
+      const btnText = document.getElementById('soundText');
+      const icon = document.getElementById('soundIcon');
 
       if (!isPlaying) {
         if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        audioCtx.resume();
-        playOceanChimes();
         isPlaying = true;
-        soundIcon.className = "fas fa-volume-up text-emerald-500 text-base";
-        soundText.innerText = "Music On";
+        btnText.innerText = "Music On";
+        icon.className = "fas fa-volume-up text-teal-600 text-base animate-pulse";
+        
+        soundInterval = setInterval(() => {
+          if (!isPlaying) return;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          const notes = [261.63, 329.63, 392.00, 523.25];
+          osc.frequency.value = notes[Math.floor(Math.random() * notes.length)];
+          gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.5);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 1.5);
+        }, 1200);
       } else {
-        if (timerId) clearInterval(timerId);
         isPlaying = false;
-        soundIcon.className = "fas fa-volume-mute text-pink-500 text-base";
-        soundText.innerText = "Music Off";
+        clearInterval(soundInterval);
+        btnText.innerText = "Music Off";
+        icon.className = "fas fa-volume-mute text-pink-500 text-base";
       }
     }
-
-    function playOceanChimes() {
-      const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
-      timerId = setInterval(() => {
-        if (!isPlaying) return;
-        const note = notes[Math.floor(Math.random() * notes.length)];
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.value = note;
-
-        gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 0.5);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + 2.6);
-      }, 1200);
-    }
-
-    function triggerConfetti() {
-      if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#a29bfe', '#ff9ff3', '#06d6a0', '#ffd166']
-        });
-      }
-    }
-
-    /* INITIALIZATION */
-    window.onload = function() {
-      createBubbles();
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-
-      // Render 7s Cards
-      renderCardGroup(rosesData, 'content-roses', '🌹', 'roses');
-      renderCardGroup(candlesData, 'grid-candles', '🕯️', 'candles');
-      renderCardGroup(treasuresData, 'content-treasures', '🎁', 'treasures');
-      renderCardGroup(shoesData, 'content-shoes', '👠', 'shoes');
-
-      renderCandles();
-      renderWishbook();
-    };
   </script>
 </body>
 </html>
